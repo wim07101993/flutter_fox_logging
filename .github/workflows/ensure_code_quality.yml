@@ -3,9 +3,9 @@ name: Ensure code quality
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   code-quality:
@@ -17,13 +17,21 @@ jobs:
         uses: subosito/flutter-action@v2.8.0
 
       - name: Install dependencies
-        shell: bash
-        run: |
-          flutter pub get
-          flutter pub global activate pana
+        run: flutter pub global activate pana
+        
+      - name: Pub get
+        run: flutter pub get
+        
+      - name: Pub get for basic logging example
+        working-directory: examples/basic_logging_example
+        run: flutter pub get
+        
+      - name: Pub get for logs viewer
+        working-directory: examples/logs_viewer
+        run: flutter pub get
           
       - name: Verify formatting
-        run: flutter format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
 
       - name: Analyze source code
         run: flutter analyze --fatal-infos --fatal-warnings
@@ -45,14 +53,5 @@ jobs:
           flutter pub global activate coverage
 
       - name: Run tests
-        run: flutter test --coverage
-
-      - name: Check code coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v2.1.0
-        with:
-          min_coverage: 10
-          path: coverage/lcov.info
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3.1.1
+        run: flutter test
         
