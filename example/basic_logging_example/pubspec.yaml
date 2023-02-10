@@ -1,0 +1,22 @@
+name: log_example
+description: An example on how the flutter logging package works.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+
+dependencies:
+  async:
+  flutter:
+    sdk: flutter
+  flutter_fox_logging:
+    path: ../../../flutter_fox_logging
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint:
+
+flutter:
+  uses-material-design: true
