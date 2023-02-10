@@ -17,13 +17,21 @@ jobs:
         uses: subosito/flutter-action@v2.8.0
 
       - name: Install dependencies
-        shell: bash
-        run: |
-          flutter pub get
-          flutter pub global activate pana
+        run: flutter pub global activate pana
+        
+      - name: Pub get
+        run: flutter pub get
+        
+      - name: Pub get for basic logging example
+        working-directory: examples/basic_logging_example
+        run: flutter pub get
+        
+      - name: Pub get for logs viewer
+        working-directory: examples/logs_viewer
+        run: flutter pub get
           
       - name: Verify formatting
-        run: flutter format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
 
       - name: Analyze source code
         run: flutter analyze --fatal-infos --fatal-warnings
