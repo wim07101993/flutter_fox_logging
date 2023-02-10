@@ -23,7 +23,7 @@ jobs:
         run: flutter pub get
         
       - name: Pub get for basic logging example
-        working-directory: examples/basic_logging_example
+        working-directory: example
         run: flutter pub get
         
       - name: Pub get for logs viewer
