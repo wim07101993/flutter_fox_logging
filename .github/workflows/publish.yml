@@ -34,5 +34,5 @@ jobs:
       - name: Install dependencies
         run: dart pub get
         
-#       - name: Publish
-#         run: dart pub publish --force
+      - name: Publish
+        run: dart pub publish --force
