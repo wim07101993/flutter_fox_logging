@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fox_logging/flutter_fox_logging.dart';
+import 'package:flutter_fox_logging/src/log_list_item.dart';
+import 'package:flutter_fox_logging/src/logs_controller/logs_controller.dart';
+import 'package:fox_logging/fox_logging.dart';
 
 class LogSearchDelegate extends SearchDelegate {
   LogSearchDelegate({
