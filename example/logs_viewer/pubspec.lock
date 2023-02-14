@@ -84,7 +84,7 @@ packages:
       path: "../.."
       relative: true
     source: path
-    version: "1.1.0"
+    version: "1.1.10"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -107,10 +107,10 @@ packages:
     dependency: "direct main"
     description:
       name: fox_logging
-      sha256: "25c1cac3eb54aa04519e9e5319326711f046e0259f169fc586b17806073d7b81"
+      sha256: a0f473186fdc13bfe25e64f27a878387fa572652a3f43c019a59f96e5b56beb7
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.0"
+    version: "0.5.3"
   js:
     dependency: transitive
     description:

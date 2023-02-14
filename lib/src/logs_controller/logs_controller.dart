@@ -4,16 +4,16 @@ import 'package:fox_logging/fox_logging.dart';
 class LogsController extends ChangeNotifier
     implements ValueListenable<Iterable<LogRecord>> {
   LogsController({
-    LogRecordList? logs,
+    List<LogRecord>? logs,
     ValueNotifier<Level>? minimumLevel,
     ValueNotifier<Map<String, bool>>? loggers,
-  })  : _allLogs = logs ?? LogRecordList.infinite(),
+  })  : _allLogs = logs ?? [],
         minimumLevel = minimumLevel ?? ValueNotifier(Level.ALL),
         loggers = loggers ??
             ValueNotifier(
               logs == null
                   ? <String, bool>{}
-                  : {for (final log in logs.toIterable()) log.loggerName: true},
+                  : {for (final log in logs) log.loggerName: true},
             ) {
     this.minimumLevel.addListener(notifyListeners);
     this.loggers.addListener(notifyListeners);
@@ -22,20 +22,15 @@ class LogsController extends ChangeNotifier
   final ValueNotifier<Level> minimumLevel;
   final ValueNotifier<Map<String, bool>> loggers;
 
-  LogRecordList _allLogs;
+  List<LogRecord> _allLogs;
 
   @override
-  Iterable<LogRecord> get value => _allLogs.toIterable().where(applyFilter);
+  Iterable<LogRecord> get value => _allLogs.where(applyFilter);
 
-  Iterable<String> get allLoggers =>
-      _allLogs.toIterable().map((l) => l.loggerName).toSet();
+  Iterable<String> get allLoggers => _allLogs.map((l) => l.loggerName).toSet();
 
   set value(Iterable<LogRecord> value) {
-    if (value is LogRecordList) {
-      _allLogs = value as LogRecordList;
-    } else {
-      _allLogs = LogRecordList.infinite(value);
-    }
+    _allLogs = value.toList();
     notifyListeners();
   }
 
