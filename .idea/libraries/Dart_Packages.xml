@@ -152,7 +152,8 @@
         <entry key="fox_logging">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/fox_logging-0.2.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/fox_logging-0.5.3/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/fox_logging-0.5.2/lib" />
             </list>
           </value>
         </entry>
@@ -485,7 +486,8 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file-6.1.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file_picker-5.2.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.7/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fox_logging-0.2.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fox_logging-0.5.2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fox_logging-0.5.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/frontend_server_client-3.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/glob-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_multi_server-3.2.1/lib" />

@@ -45,12 +45,10 @@ class FilePickerScreen extends StatelessWidget {
     final logs = logRecordLists.expand((list) => list).toList()
       ..sort((a, b) => a.time.compareTo(b.time));
 
-    final logRecordList = LogRecordList.limited(500, logs);
-
     navigator.push(
       MaterialPageRoute(
         builder: (context) => LogsScreen(
-          controller: LogsController(logs: logRecordList),
+          controller: LogsController(logs: logs),
         ),
       ),
     );
