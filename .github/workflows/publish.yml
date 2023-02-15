@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
         
+      - name: Install Dart
+        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
+        
       - name: Publish - dry run
-        run: flutter pub publish --dry-run
+        run: dart pub publish --dry-run
         
       - name: Publish to pub.dev
         run: dart pub publish -f
