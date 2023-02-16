@@ -22,7 +22,7 @@ void main() {
     await Future.delayed(const Duration(seconds: 1));
     logger.info('This actually looks quiet nice');
     await Future.delayed(const Duration(seconds: 1));
-    secondLogger.warning('Null-pointers ahead');
+    secondLogger.warning('Type-errors ahead');
     await Future.delayed(const Duration(seconds: 1));
     logger.severe(
       'Type error ...',

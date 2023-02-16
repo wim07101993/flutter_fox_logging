@@ -60,11 +60,14 @@ class _LogListState extends State<LogList> {
 
   @override
   Widget build(BuildContext context) {
-    if (scrollController.positions.isNotEmpty &&
-        scrollController.position.hasContentDimensions &&
-        scrollController.offset == scrollController.position.maxScrollExtent) {
-      scrollToBottom();
-    }
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (scrollController.positions.isNotEmpty &&
+          scrollController.position.hasContentDimensions &&
+          scrollController.offset !=
+              scrollController.position.maxScrollExtent) {
+        scrollToBottom();
+      }
+    });
     return ListView.builder(
       controller: scrollController,
       itemCount: widget.logs.length,
@@ -82,17 +85,11 @@ class _LogListState extends State<LogList> {
     );
   }
 
-  Future scrollToBottom() {
-    if (scrollController.positions.isEmpty) {
-      return Future.value();
-    }
-    return Future.delayed(
-      const Duration(milliseconds: 1),
-      () => scrollController.animateTo(
-        scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      ),
+  Future<void> scrollToBottom() {
+    return scrollController.animateTo(
+      scrollController.position.maxScrollExtent,
+      duration: Duration(milliseconds: widget.logs.length * 10),
+      curve: Curves.easeOut,
     );
   }
 }
