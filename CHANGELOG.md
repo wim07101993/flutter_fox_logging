@@ -1,3 +1,8 @@
+## 1.2.0
+
+- updated fox_logging package
+- feat: added `WebConsoleSink`
+
 ## 1.1.10
 
 - Updated fox_logging package
