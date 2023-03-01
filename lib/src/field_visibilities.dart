@@ -9,15 +9,27 @@ class LogFieldVisibilities {
   final bool loggerName;
   final bool time;
 
-  LogFieldVisibilities copyWith({
-    bool? icon,
-    bool? loggerName,
-    bool? time,
-  }) {
+  LogFieldVisibilities copyWithIcon({required bool icon}) {
     return LogFieldVisibilities(
-      icon: icon ?? this.icon,
-      loggerName: loggerName ?? this.loggerName,
-      time: time ?? this.time,
+      icon: icon,
+      loggerName: loggerName,
+      time: time,
+    );
+  }
+
+  LogFieldVisibilities copyWithLoggerName({required bool loggerName}) {
+    return LogFieldVisibilities(
+      icon: icon,
+      loggerName: loggerName,
+      time: time,
+    );
+  }
+
+  LogFieldVisibilities copyWithTime({required bool time}) {
+    return LogFieldVisibilities(
+      icon: icon,
+      loggerName: loggerName,
+      time: time,
     );
   }
 }
