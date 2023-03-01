@@ -6,7 +6,7 @@ import 'package:fox_logging/fox_logging.dart';
 class StreamedLogsController extends LogsController {
   StreamedLogsController({
     required Stream<LogRecord> logs,
-  }) : super() {
+  }) {
     _subscription = logs.listen((logRecord) => super.addLog(logRecord));
   }
 

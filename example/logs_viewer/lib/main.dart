@@ -48,7 +48,7 @@ class FilePickerScreen extends StatelessWidget {
     navigator.push(
       MaterialPageRoute(
         builder: (context) => LogsScreen(
-          controller: LogsController(logs: logs),
+          controller: LogsController()..value = logs,
         ),
       ),
     );

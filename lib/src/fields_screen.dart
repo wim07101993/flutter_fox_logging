@@ -26,23 +26,20 @@ class FieldsScreen extends StatelessWidget {
                 return Column(children: [
                   LabeledCheckBox(
                     value: visibleFields.icon,
-                    onChanged: (v) => controller.value = visibleFields.copyWith(
-                      icon: v ?? false,
-                    ),
+                    onChanged: (v) => controller.value =
+                        visibleFields.copyWithIcon(icon: v ?? false),
                     label: const Text('Icon'),
                   ),
                   LabeledCheckBox(
                     value: visibleFields.loggerName,
-                    onChanged: (v) => controller.value = visibleFields.copyWith(
-                      loggerName: v ?? false,
-                    ),
+                    onChanged: (v) => controller.value = visibleFields
+                        .copyWithLoggerName(loggerName: v ?? false),
                     label: const Text('Logger name'),
                   ),
                   LabeledCheckBox(
                     value: visibleFields.time,
-                    onChanged: (v) => controller.value = visibleFields.copyWith(
-                      time: v ?? false,
-                    ),
+                    onChanged: (v) => controller.value =
+                        visibleFields.copyWithTime(time: v ?? false),
                     label: const Text('Time'),
                   ),
                 ]);

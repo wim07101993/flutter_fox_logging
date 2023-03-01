@@ -1,23 +1,22 @@
+import 'dart:math';
+
+import 'package:circular_buffer/circular_buffer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fox_logging/fox_logging.dart';
 
 class LogsController extends ChangeNotifier
     implements ValueListenable<Iterable<LogRecord>> {
   LogsController({
-    List<LogRecord>? logs,
     ValueNotifier<Level>? minimumLevel,
     ValueNotifier<Map<String, bool>>? loggers,
-  })  : _allLogs = logs ?? [],
+  })  : _allLogs = CircularBuffer(maxLogCount),
         minimumLevel = minimumLevel ?? ValueNotifier(Level.ALL),
-        loggers = loggers ??
-            ValueNotifier(
-              logs == null
-                  ? <String, bool>{}
-                  : {for (final log in logs) log.loggerName: true},
-            ) {
+        loggers = loggers ?? ValueNotifier(const {}) {
     this.minimumLevel.addListener(notifyListeners);
     this.loggers.addListener(notifyListeners);
   }
+
+  static const int maxLogCount = 1000;
 
   final ValueNotifier<Level> minimumLevel;
   final ValueNotifier<Map<String, bool>> loggers;
@@ -30,7 +29,11 @@ class LogsController extends ChangeNotifier
   Iterable<String> get allLoggers => _allLogs.map((l) => l.loggerName).toSet();
 
   set value(Iterable<LogRecord> value) {
-    _allLogs = value.toList();
+    final newLogs = value.toList(growable: false);
+    _allLogs = CircularBuffer.of(
+      newLogs.sublist(max(newLogs.length - maxLogCount, 0)),
+      maxLogCount,
+    );
     notifyListeners();
   }
 

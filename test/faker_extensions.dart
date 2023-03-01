@@ -7,19 +7,33 @@ import 'package:fox_logging/fox_logging.dart';
 export 'package:faker/faker.dart';
 
 extension FakerExtensions on Faker {
-  LogRecord logRecord({Level? level}) {
+  LogRecord logRecord({
+    Level? level,
+    String? message,
+    String? loggerName,
+    Object? error,
+    StackTrace? stackTrace,
+    Zone? zone,
+    Object? object,
+  }) {
     return LogRecord(
       level ?? logLevel(),
-      faker.lorem.sentence(),
-      faker.lorem.word(),
-      faker.nullOr(() => faker.lorem.sentence()),
-      faker.nullOr(() => StackTrace.current),
-      faker.nullOr(() => Zone.current),
-      faker.nullOr(() => faker.lorem.sentence()),
+      message ?? faker.lorem.sentence(),
+      loggerName ?? faker.lorem.word(),
+      error ?? faker.nullOr(() => faker.lorem.sentence()),
+      stackTrace ?? faker.nullOr(() => StackTrace.current),
+      zone ?? faker.nullOr(() => Zone.current),
+      object ?? faker.nullOr(() => faker.lorem.sentence()),
     );
   }
 
-  Level logLevel() => randomGenerator.element(Level.LEVELS);
+  Level logLevel([Level? differentFrom]) {
+    final value = faker.randomGenerator.integer(Level.OFF.value);
+    return Level(
+      faker.lorem.word(),
+      differentFrom != null && value == differentFrom.value ? value - 1 : value,
+    );
+  }
 
   Color color() => Color(faker.randomGenerator.integer(0xFFFFFFFF));
 

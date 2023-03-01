@@ -6,3 +6,11 @@ import 'package:mocktail/mocktail.dart';
 class MockIconData extends Mock implements IconData {}
 
 class MockLogsController extends Mock implements LogsController {}
+
+class MockValueNotifier<T> extends Mock implements ValueNotifier<T> {}
+
+class MockListener extends Mock implements _Listener {}
+
+class _Listener {
+  void call() {}
+}
