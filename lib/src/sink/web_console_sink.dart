@@ -1,5 +1,6 @@
 import 'package:flutter_fox_logging/flutter_fox_logging.dart';
-import 'package:flutter_fox_logging/src/sink/console_stub.dart'
+
+export 'package:flutter_fox_logging/src/sink/console_stub.dart'
     if (kIsWeb) 'dart:html';
 
 /// A [LogSinkMixin] which uses the [Console] to write logs to.
