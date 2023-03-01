@@ -1,6 +1,4 @@
 import 'package:flutter_fox_logging/flutter_fox_logging.dart';
-import 'package:flutter_fox_logging/src/sink/console_stub.dart';
-import 'package:flutter_fox_logging/src/sink/web_console_sink.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

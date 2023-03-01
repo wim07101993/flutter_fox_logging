@@ -33,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  circular_buffer:
+    dependency: transitive
+    description:
+      name: circular_buffer
+      sha256: "2889afcfc97aa0d9a4930ae5fdf206aea7d0ac88a3649acec9130565cd8f45d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.11.0"
   clock:
     dependency: transitive
     description:
@@ -84,7 +92,7 @@ packages:
       path: "../.."
       relative: true
     source: path
-    version: "1.1.10"
+    version: "1.2.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -107,10 +115,10 @@ packages:
     dependency: "direct main"
     description:
       name: fox_logging
-      sha256: a0f473186fdc13bfe25e64f27a878387fa572652a3f43c019a59f96e5b56beb7
+      sha256: "6df9fa12676416bae464014bb8950da653e5decb722211df4536fb55a8549656"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.3"
+    version: "0.6.0"
   js:
     dependency: transitive
     description:
