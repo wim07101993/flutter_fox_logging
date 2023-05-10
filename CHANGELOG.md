@@ -1,3 +1,7 @@
+## 1.3.0
+
+- package upgrades
+
 ## 1.2.0
 
 - updated fox_logging package
