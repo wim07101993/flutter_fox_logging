@@ -5,7 +5,6 @@ import 'package:flutter_fox_logging/src/field_visibilities.dart';
 import 'package:flutter_fox_logging/src/filter/search_button.dart';
 import 'package:flutter_fox_logging/src/level_converter/log_level_to_color_converter.dart';
 import 'package:flutter_fox_logging/src/level_converter/log_level_to_icon_converter.dart';
-import 'package:flutter_fox_logging/src/listenable_builder.dart';
 import 'package:flutter_fox_logging/src/log_list.dart';
 import 'package:flutter_fox_logging/src/logs_controller/logs_controller.dart';
 import 'package:flutter_fox_logging/src/options_button.dart';
@@ -72,7 +71,7 @@ class _LogsScreenState extends State<LogsScreen> {
       ),
       body: ListenableBuilder(
         listenable: widget.controller,
-        builder: (context) => LogList(
+        builder: (context, _) => LogList(
           colors: widget.colors,
           icons: widget.icons,
           visualDensity: widget.visualDensity,
