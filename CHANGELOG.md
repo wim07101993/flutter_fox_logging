@@ -1,3 +1,7 @@
+## 2.0.0
+
+- feat!: upgrade to dart v3
+
 ## 1.3.0
 
 - package upgrades
