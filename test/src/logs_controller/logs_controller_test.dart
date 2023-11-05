@@ -85,7 +85,7 @@ void main() {
       final listener = MockListener();
       final minimumLevel = ValueNotifier(faker.logLevel());
       final controller = LogsController(minimumLevel: minimumLevel);
-      controller.addListener(listener);
+      controller.addListener(listener.call);
 
       // act
       minimumLevel.value = faker.logLevel(minimumLevel.value);
@@ -99,7 +99,7 @@ void main() {
       final listener = MockListener();
       final loggers = ValueNotifier<Map<String, bool>>(const {});
       final controller = LogsController(loggers: loggers);
-      controller.addListener(listener);
+      controller.addListener(listener.call);
 
       // act
       loggers.value = {
@@ -225,7 +225,7 @@ void main() {
         faker.randomGenerator.integer(10),
         (index) => faker.logRecord(),
       );
-      controller.addListener(mockListener);
+      controller.addListener(mockListener.call);
 
       // act
       controller.value = logs;
@@ -288,7 +288,7 @@ void main() {
     test('should notify listeners', () {
       // arrange
       final mockListener = MockListener();
-      controller.addListener(mockListener);
+      controller.addListener(mockListener.call);
 
       // act
       controller.addLog(fakeLogRecord);

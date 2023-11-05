@@ -1,3 +1,4 @@
+/// Extension on the logging package to view logs in a flutter application.
 library flutter_fox_logging;
 
 export 'package:flutter_fox_logging/src/level_converter/log_level_to_color_converter.dart';
