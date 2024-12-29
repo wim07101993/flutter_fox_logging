@@ -79,15 +79,19 @@ class LogListItem extends StatelessWidget {
 
   void onTap(BuildContext context, IconData? icon, Color? color) {
     final detailScreenBuilder = this.detailScreenBuilder;
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      if (detailScreenBuilder == null) {
-        return LogDetailScreen(
-          logRecord: logRecord,
-          color: color,
-          icon: icon,
-        );
-      }
-      return detailScreenBuilder(logRecord);
-    }));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          if (detailScreenBuilder == null) {
+            return LogDetailScreen(
+              logRecord: logRecord,
+              color: color,
+              icon: icon,
+            );
+          }
+          return detailScreenBuilder(logRecord);
+        },
+      ),
+    );
   }
 }

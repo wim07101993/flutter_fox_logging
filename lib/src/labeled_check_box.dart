@@ -14,12 +14,14 @@ class LabeledCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Checkbox(
-        value: value,
-        onChanged: onChanged,
-      ),
-      label,
-    ]);
+    return Row(
+      children: [
+        Checkbox(
+          value: value,
+          onChanged: onChanged,
+        ),
+        label,
+      ],
+    );
   }
 }

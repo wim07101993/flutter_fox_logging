@@ -1,3 +1,8 @@
+## 2.1.0
+
+-feat: added `addAllLogs` method to logs controller
+-chore: linting
+
 ## 2.0.0
 
 - feat!: upgrade to dart v3

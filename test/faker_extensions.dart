@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:faker/faker.dart';
+import 'package:faker/faker.dart' show Faker, faker;
 import 'package:flutter/material.dart';
 import 'package:fox_logging/fox_logging.dart';
 
-export 'package:faker/faker.dart';
+export 'package:faker/faker.dart' show Faker, faker;
 
 extension FakerExtensions on Faker {
   LogRecord logRecord({
