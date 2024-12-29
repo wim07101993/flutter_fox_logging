@@ -42,6 +42,11 @@ class LogsController extends ChangeNotifier
     notifyListeners();
   }
 
+  void addAllLogs(Iterable<LogRecord> logRecords) {
+    _allLogs.addAll(logRecords);
+    notifyListeners();
+  }
+
   @override
   void dispose() {
     minimumLevel.removeListener(notifyListeners);

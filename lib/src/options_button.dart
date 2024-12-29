@@ -45,9 +45,11 @@ class _Fields implements _Option {
 
   @override
   Future<void> navigate(BuildContext context) {
-    return Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => FieldsScreen(controller: fieldVisibilities),
-    ));
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => FieldsScreen(controller: fieldVisibilities),
+      ),
+    );
   }
 }
 
@@ -60,8 +62,10 @@ class _Filter implements _Option {
 
   @override
   Future<void> navigate(BuildContext context) {
-    return Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => FilterScreen(controller: controller),
-    ));
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => FilterScreen(controller: controller),
+      ),
+    );
   }
 }

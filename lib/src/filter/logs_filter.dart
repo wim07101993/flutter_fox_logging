@@ -13,10 +13,12 @@ class LogsFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      LevelFilterSelector(controller: controller.minimumLevel),
-      const SizedBox(height: 16),
-      LoggerSelector(controller: controller),
-    ]);
+    return Column(
+      children: [
+        LevelFilterSelector(controller: controller.minimumLevel),
+        const SizedBox(height: 16),
+        LoggerSelector(controller: controller),
+      ],
+    );
   }
 }
