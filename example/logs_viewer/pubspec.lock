@@ -179,10 +179,10 @@ packages:
     dependency: "direct main"
     description:
       name: fox_logging
-      sha256: "20fbb09b6d3afe28c7bd92a3e4ef90e778a0692ba2c6171284e85c2396129ce9"
+      sha256: "97ec752a6787c6978bef7a8602c70aad7571abfe66bd4e73f19135a973082198"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.1.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -390,4 +390,4 @@ packages:
     version: "7.0.1"
 sdks:
   dart: ">=3.13.0 <4.0.0"
-  flutter: ">=3.38.0"
+  flutter: ">=3.47.0"

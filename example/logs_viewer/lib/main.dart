@@ -9,9 +9,7 @@ Future<void> main() async {
   runApp(const MaterialApp(home: FilePickerScreen()));
 }
 
-class FilePickerScreen extends StatelessWidget {
-  const FilePickerScreen({super.key});
-
+class const FilePickerScreen({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

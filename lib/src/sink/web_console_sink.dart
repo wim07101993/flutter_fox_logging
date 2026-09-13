@@ -4,14 +4,19 @@ export 'package:flutter_fox_logging/src/sink/console_stub.dart'
     if (kIsWeb) 'dart:html';
 
 /// A [LogSinkMixin] which uses the [Console] to write logs to.
-class WebConsoleSink extends LogSink {
+class WebConsoleSink with LogSinkMixin {
+  /// Creates a sink which writes the log-records [filter] allows through to
+  /// the [console].
   WebConsoleSink(
     this.console, [
-    super.logFilter,
+    this.filter = const LogFilter.none(),
   ]);
 
   /// The console to write the logs to.
   final Console console;
+
+  @override
+  final LogFilter filter;
 
   @override
   Future<void> write(LogRecord logRecord) {

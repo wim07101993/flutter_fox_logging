@@ -1,5 +1,8 @@
 ## 2.2.0
 
+- feat: upgraded to `fox_logging` 1.1.0
+- feat: the sinks use `LogSinkMixin` instead of the deprecated `LogSink`
+- feat: `LogsControllerLogSink` takes a `filter`, like the other sinks
 - chore: raised the minimum SDK to Dart 3.9 / Flutter 3.35
 - chore: package upgrades
 - fix: replaced the deprecated `DropdownButtonFormField.value` with `initialValue`
