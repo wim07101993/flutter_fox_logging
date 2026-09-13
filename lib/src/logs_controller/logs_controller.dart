@@ -9,9 +9,9 @@ class LogsController extends ChangeNotifier
   LogsController({
     ValueNotifier<Level>? minimumLevel,
     ValueNotifier<Map<String, bool>>? loggers,
-  })  : _allLogs = CircularBuffer(maxLogCount),
-        minimumLevel = minimumLevel ?? ValueNotifier(Level.ALL),
-        loggers = loggers ?? ValueNotifier(const {}) {
+  }) : _allLogs = CircularBuffer(maxLogCount),
+       minimumLevel = minimumLevel ?? ValueNotifier(Level.ALL),
+       loggers = loggers ?? ValueNotifier(const {}) {
     this.minimumLevel.addListener(notifyListeners);
     this.loggers.addListener(notifyListeners);
   }

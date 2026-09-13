@@ -8,19 +8,26 @@
 #
 # Ensure the package has a perfect score
 # `./ensure_pana_score.sh`
+set -euo pipefail
 
 PANA=$(pana . --no-warning)
 echo "$PANA"
+
 PANA_SCORE=$(echo "$PANA" | sed -n "s/.*Points: \([0-9]*\)\/\([0-9]*\)./\1\/\2/p")
 echo "score: $PANA_SCORE"
-IFS='/'
-read -r -a SCORE_ARR <<<"$PANA_SCORE"
-SCORE=SCORE_ARR[0]
-TOTAL=SCORE_ARR[1]
 
-# For this package we only need a score of 110 since isolates are not available for web
-MINIMUM_SCORE=130
-if ((SCORE < MINIMUM_SCORE)); then
-  echo "minimum score $MINIMUM_SCORE was not met!"
+if [[ -z "$PANA_SCORE" ]]; then
+  echo "could not determine the pana score!"
   exit 1
 fi
+
+SCORE=${PANA_SCORE%%/*}
+TOTAL=${PANA_SCORE##*/}
+MINIMUM_SCORE=${1:-$TOTAL}
+
+if ((SCORE < MINIMUM_SCORE)); then
+  echo "minimum score $MINIMUM_SCORE was not met (got $SCORE/$TOTAL)!"
+  exit 1
+fi
+
+echo "score $SCORE/$TOTAL meets the minimum of $MINIMUM_SCORE"

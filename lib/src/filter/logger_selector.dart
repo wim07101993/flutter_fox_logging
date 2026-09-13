@@ -41,20 +41,20 @@ class LoggerSelector extends StatelessWidget {
         Text('Loggers', style: theme.textTheme.bodySmall),
         if (loggers.isEmpty)
           const Text('None')
+        else if (loggers.length == 1)
+          Text(loggers[0])
         else
-          loggers.length == 1
-              ? Text(loggers[0])
-              : RichText(
-                  text: TextSpan(
-                    children: [
-                      ...loggers
-                          .take(loggers.length - 1)
-                          .map((l) => TextSpan(text: '$l, ')),
-                      TextSpan(text: loggers.last),
-                    ],
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                ),
+          RichText(
+            text: TextSpan(
+              children: [
+                ...loggers
+                    .take(loggers.length - 1)
+                    .map((l) => TextSpan(text: '$l, ')),
+                TextSpan(text: loggers.last),
+              ],
+              style: theme.textTheme.bodyMedium,
+            ),
+          ),
       ],
     );
   }

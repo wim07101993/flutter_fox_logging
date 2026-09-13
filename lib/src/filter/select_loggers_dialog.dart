@@ -24,7 +24,7 @@ class SelectLoggersDialog extends StatelessWidget {
     final enabledLoggers = controller.loggers.value;
     final areAllLoggersEnabled =
         enabledLoggers.length == possibleLoggers.length &&
-            enabledLoggers.values.every((isEnabled) => isEnabled);
+        enabledLoggers.values.every((isEnabled) => isEnabled);
 
     return SimpleDialog(
       title: const Text('Select loggers'),

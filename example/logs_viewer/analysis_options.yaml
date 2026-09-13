@@ -1,1 +1,13 @@
+formatter:
+  trailing_commas: preserve
+
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
 include: package:lint/analysis_options.yaml

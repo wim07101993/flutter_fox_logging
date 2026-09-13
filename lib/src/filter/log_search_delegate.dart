@@ -10,8 +10,9 @@ class LogSearchDelegate extends SearchDelegate {
 
   final LogsController logs;
 
-  Iterable<LogRecord> get queriedLogs => logs.value
-      .where((logRecord) => query.isEmpty || logRecord.message.contains(query));
+  Iterable<LogRecord> get queriedLogs => logs.value.where(
+    (logRecord) => query.isEmpty || logRecord.message.contains(query),
+  );
 
   @override
   List<Widget>? buildActions(BuildContext context) {

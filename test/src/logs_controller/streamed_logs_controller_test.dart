@@ -36,10 +36,12 @@ void main() {
       // arrange
       final mockStreamSubscription = MockStreamSubscription<LogRecord>();
       final mockStream = MockStream<LogRecord>();
-      when(() => mockStream.listen(any()))
-          .thenAnswer((i) => mockStreamSubscription);
-      when(() => mockStreamSubscription.cancel())
-          .thenAnswer((i) => Future.value());
+      when(
+        () => mockStream.listen(any()),
+      ).thenAnswer((i) => mockStreamSubscription);
+      when(
+        () => mockStreamSubscription.cancel(),
+      ).thenAnswer((i) => Future.value());
       final controller = StreamedLogsController(logs: mockStream);
 
       // act
