@@ -15,7 +15,7 @@ class LevelFilterSelector extends StatelessWidget {
       hint: const Text('Level'),
       decoration: const InputDecoration(label: Text('Minimum level')),
       items: Level.LEVELS.map(_menuItem).toList(),
-      value: controller.value,
+      initialValue: controller.value,
       onChanged: (v) => controller.value = v ?? Level.ALL,
     );
   }

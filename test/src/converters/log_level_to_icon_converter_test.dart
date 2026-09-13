@@ -2,33 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fox_logging/flutter_fox_logging.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../mocks.dart';
-
 void main() {
-  late MockIconData? fakeDefault;
-  late MockIconData? fakeFinest;
-  late MockIconData? fakeFiner;
-  late MockIconData? fakeFine;
-  late MockIconData? fakeConfig;
-  late MockIconData? fakeInfo;
-  late MockIconData? fakeWarning;
-  late MockIconData? fakeSevere;
-  late MockIconData? fakeShout;
+  const IconData fakeDefault = IconData(0xe000);
+  const IconData fakeFinest = IconData(0xe001);
+  const IconData fakeFiner = IconData(0xe002);
+  const IconData fakeFine = IconData(0xe003);
+  const IconData fakeConfig = IconData(0xe004);
+  const IconData fakeInfo = IconData(0xe005);
+  const IconData fakeWarning = IconData(0xe006);
+  const IconData fakeSevere = IconData(0xe007);
+  const IconData fakeShout = IconData(0xe008);
 
   late LogLevelToIconConverter converter;
 
   setUp(() {
-    fakeDefault = MockIconData();
-    fakeFinest = MockIconData();
-    fakeFiner = MockIconData();
-    fakeFine = MockIconData();
-    fakeConfig = MockIconData();
-    fakeInfo = MockIconData();
-    fakeWarning = MockIconData();
-    fakeSevere = MockIconData();
-    fakeShout = MockIconData();
-
-    converter = LogLevelToIconConverter(
+    converter = const LogLevelToIconConverter(
       defaultValue: fakeDefault,
       finest: fakeFinest,
       finer: fakeFiner,

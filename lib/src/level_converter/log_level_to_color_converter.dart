@@ -13,12 +13,12 @@ class LogLevelToColorConverter extends LogLevelConverter<Color?> {
     Color? severe,
     Color? shout,
   }) : super(
-          finest: finest ?? Colors.grey,
-          finer: finer ?? Colors.grey,
-          config: config ?? Colors.green,
-          info: info ?? Colors.blue,
-          warning: warning ?? Colors.deepOrange,
-          severe: severe ?? Colors.red,
-          shout: shout ?? Colors.purple,
-        );
+         finest: finest ?? Colors.grey,
+         finer: finer ?? Colors.grey,
+         config: config ?? Colors.green,
+         info: info ?? Colors.blue,
+         warning: warning ?? Colors.deepOrange,
+         severe: severe ?? Colors.red,
+         shout: shout ?? Colors.purple,
+       );
 }

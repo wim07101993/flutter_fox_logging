@@ -13,12 +13,12 @@ class LogLevelToIconConverter extends LogLevelConverter<IconData?> {
     IconData? severe,
     IconData? shout,
   }) : super(
-          finest: finest ?? Icons.code,
-          finer: finer ?? Icons.bug_report,
-          config: config ?? Icons.settings,
-          info: info ?? Icons.info,
-          warning: warning ?? Icons.warning,
-          severe: severe ?? Icons.error,
-          shout: shout ?? Icons.bolt,
-        );
+         finest: finest ?? Icons.code,
+         finer: finer ?? Icons.bug_report,
+         config: config ?? Icons.settings,
+         info: info ?? Icons.info,
+         warning: warning ?? Icons.warning,
+         severe: severe ?? Icons.error,
+         shout: shout ?? Icons.bolt,
+       );
 }

@@ -1,5 +1,5 @@
+import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -31,15 +31,15 @@ class FilePickerScreen extends StatelessWidget {
 
   Future<void> pickFiles(BuildContext context) async {
     final navigator = Navigator.of(context);
-    final result = await FilePicker.platform.pickFiles(
+    final files = await FilePicker.pickFiles(
       dialogTitle: 'Select log file',
     );
-    if (result == null || result.files.isEmpty) {
+    if (files.isEmpty) {
       return;
     }
 
     final logRecordLists = await Future.wait(
-      result.paths.whereType<String>().map(tryReadLogFile),
+      files.map(tryReadLogFile),
     );
 
     final logs = logRecordLists.expand((list) => list).toList()
@@ -54,9 +54,9 @@ class FilePickerScreen extends StatelessWidget {
     );
   }
 
-  Future<List<LogRecord>> tryReadLogFile(String path) async {
+  Future<List<LogRecord>> tryReadLogFile(PlatformFile file) async {
     try {
-      final contents = await File(path).readAsString();
+      final contents = utf8.decode(await file.readAsBytes());
       const parser = JsonLogRecordParser();
       return parser.parseList(contents).toList(growable: false);
     } catch (e, stackTrace) {
