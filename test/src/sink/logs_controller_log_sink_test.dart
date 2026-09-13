@@ -17,6 +17,13 @@ void main() {
     sink = LogsControllerLogSink(controller: mockController);
   });
 
+  test('should be a [LogSink] until 3.0.0', () {
+    // Consumers may declare this sink as a `LogSink`; the supertype stays
+    // until `fox_logging` drops it in 2.0.0.
+    // ignore: deprecated_member_use
+    expect(sink, isA<LogSink>());
+  });
+
   group('constructor', () {
     test('should let every log-record through by default', () {
       expect(sink.filter, isA<NoLogFilter>());

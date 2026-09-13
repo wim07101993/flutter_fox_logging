@@ -1,7 +1,9 @@
 ## 2.2.0
 
 - feat: upgraded to `fox_logging` 1.1.0
-- feat: the sinks use `LogSinkMixin` instead of the deprecated `LogSink`
+- the sinks keep extending the deprecated `LogSink`, so consumers that
+  declare them as a `LogSink` keep compiling. The supertype is removed in
+  3.0.0, together with `fox_logging` 2.0.0.
 - feat: `LogsControllerLogSink` takes a `filter`, like the other sinks
 - chore: raised the minimum SDK to Dart 3.9 / Flutter 3.35
 - chore: package upgrades
